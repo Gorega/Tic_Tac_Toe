@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useEffect, useState } from "react";
+import Form from "./components/Form";
+import Game from "./components/Game";
+import { AppContext } from "./ContextApi";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const {step,setStep} = useContext(AppContext);
+  const [loading,setLoading] = useState(true);
+
+  useEffect(()=>{
+    if(localStorage.getItem("step") == 3){
+      setStep(3)
+    }
+    setLoading(false);
+  },[])
+
+  return !loading &&
+     <>
+      <h2 style={{textAlign:"center"}}>Welcome to Tic Tac Toe game</h2>
+      {step === 1 && <Form title="Add First Player" submitTitle="Continue" type="firstPlayerForm" />}
+      {step === 2 && <Form title="Add Second Player" submitTitle="Start game" type="secondPlayerForm" />}
+      {step === 3 && <Game />}
+    </>
 }
 
 export default App;
