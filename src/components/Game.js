@@ -11,44 +11,45 @@ export default function Game(){
     const [firstPlayerWinnings,setFirstPlayerWinnings] = useState(localStorage.getItem("firstPlayerWinnings"));
     const [secondPlayerWinnings,setSecondPlayerWinnings] = useState(localStorage.getItem("secondPlayerWinnings"));
 
+
     const checkWinner = ()=>{
-          if(((spots[0] === "X" && spots[1] === "X" && spots[2]) === "X")
+          if((spots[0] === "X" && spots[1] === "X" && spots[2] === "X")
             ||
-            ((spots[0] === "X" && spots[4] === "X" && spots[8]) === "X")
+            (spots[0] === "X" && spots[4] === "X" && spots[8] === "X")
             ||
-            ((spots[2] === "X" && spots[4] === "X" && spots[6]) === "X")
+            (spots[2] === "X" && spots[4] === "X" && spots[6] === "X")
             ||
-            ((spots[0] === "X" && spots[3] === "X" && spots[6]) === "X")
+            (spots[0] === "X" && spots[3] === "X" && spots[6] === "X")
             ||
-            ((spots[2] === "X" && spots[5] === "X" && spots[8]) === "X")
+            (spots[2] === "X" && spots[5] === "X" && spots[8] === "X")
             ||
-            ((spots[6] === "X" && spots[7] === "X" && spots[8]) === "X")
+            (spots[6] === "X" && spots[7] === "X" && spots[8] === "X")
             ||
-            ((spots[1] === "X" && spots[4] === "X" && spots[7]) === "X")
+            (spots[1] === "X" && spots[4] === "X" && spots[7] === "X")
             ||
-            ((spots[3] === "X" && spots[4] === "X" && spots[5]) === "X")
+            (spots[3] === "X" && spots[4] === "X" && spots[5] === "X")
         ){
             setWinner(1)
             setFirstPlayerWinnings(Number(firstPlayerWinnings) + 1)
             localStorage.setItem("firstPlayerWinnings", Number(firstPlayerWinnings) + 1)
         }
 
-         if(((spots[0] === "O" && spots[1] === "O" && spots[2]) === "O")
+         if((spots[0] === "O" && spots[1] === "O" && spots[2] === "O")
             ||
-            ((spots[0] === "O" && spots[4] === "O" && spots[8]) === "O")
+            (spots[0] === "O" && spots[4] === "O" && spots[8] === "O")
             ||
-            ((spots[2] === "O" && spots[4] === "O" && spots[6]) === "O")
+            (spots[2] === "O" && spots[4] === "O" && spots[6] === "O")
             ||
-            ((spots[0] === "O" && spots[3] === "O" && spots[6]) === "O")
+            (spots[0] === "O" && spots[3] === "O" && spots[6] === "O")
             ||
-            ((spots[2] === "O" && spots[5] === "O" && spots[8]) === "O")
+            (spots[2] === "O" && spots[5] === "O" && spots[8] === "O")
             ||
-            ((spots[6] === "O" && spots[7] === "O" && spots[8]) === "O")
+            (spots[6] === "O" && spots[7] === "O" && spots[8] === "O")
             ||
-            ((spots[1] === "O" && spots[4] === "O" && spots[7]) === "O")
+            (spots[1] === "O" && spots[4] === "O" && spots[7] === "O")
             ||
-            ((spots[3] === "O" && spots[4] === "O" && spots[5]) === "O")
-        ){
+            (spots[3] === "O" && spots[4] === "O" && spots[5] === "O")
+            ){
             setWinner(2)
             setSecondPlayerWinnings(Number(secondPlayerWinnings) + 1)
             localStorage.setItem("secondPlayerWinnings", Number(secondPlayerWinnings) + 1)
