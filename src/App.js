@@ -4,13 +4,10 @@ import Game from "./components/Game";
 import { AppContext } from "./ContextApi";
 
 function App() {
-  const {step,setStep} = useContext(AppContext);
+  const {step} = useContext(AppContext);
   const [loading,setLoading] = useState(true);
 
   useEffect(()=>{
-    if(localStorage.getItem("step") == 3){
-      setStep(3)
-    }
     setLoading(false);
   },[])
 
